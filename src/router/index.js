@@ -1,27 +1,37 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import Router from 'vue-router';
 
-Vue.use(VueRouter);
+import vContacts from '../components/contacts/v-contact-list.vue';
+import vContactUserInfo from '../components/contacts/v-contact-user-info.vue';
+import vUserList from '../components/users/v-users-list.vue';
+import vUserChat from '../components/users/chat/v-user-chat.vue';
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView,
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
-  },
-];
+Vue.use(Router);
 
-const router = new VueRouter({
-  routes,
+const router = new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'contacts',
+      component: vContacts,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: vContactUserInfo,
+    },
+    {
+      path: '/chats',
+      name: 'chats',
+      component: vUserList,
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: vUserChat,
+      props: true,
+    },
+  ],
 });
 
 export default router;
