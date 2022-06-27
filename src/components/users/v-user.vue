@@ -1,5 +1,5 @@
 <template>
-  <div class="v-user" @click="toUserChat">
+  <div class="v-user" :data-id="`e2e-user-item-${user_data.name}`" @click="toUserChat">
     <div class="v-user__avatar"></div>
     <div class="v-user__info">
       <p class="info__name">{{ user_data.name }}</p>

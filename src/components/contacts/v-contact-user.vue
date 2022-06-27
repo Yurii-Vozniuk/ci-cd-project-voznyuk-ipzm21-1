@@ -1,5 +1,5 @@
 <template>
-    <div class="v-contact-user" @click="toContactInfo">
+    <div class="v-contact-user" :data-id="`e2e-contact-${contact_data.name}`" @click="toContactInfo">
         <div class="user__avatar"></div>
         <div class="user__name">
             <span>{{contact_data.name}}</span>
